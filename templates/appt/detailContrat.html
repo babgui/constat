@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <div class="col-lg-12">
+        <hr>
+        <h6 class="intro-text text-center"> E-constat: Détail d'un Contrat
+        </h6>
+        <hr class="detail-separator">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col col-md col-4">
+
+                <p class="text"> Infraction</p>
+                <span>{{contrat.infraction}}</span>
+
+        </div>
+        <div class="col col-md col-4">
+            <div class="card card-body card-center">
+                <p class="text">Pénalité</p>
+                <span>{{contrat.penalite}}</span>
+            </div>
+        </div>
+        <div class="col col-md col-4">
+
+                <p class="text">Montant à Payer</p>
+                <span>{{contrat.montant}}</span>
+
+        </div>
+    </div>
+<hr class="detail-separator">
+    <a class="btn btn-md btn-danger" href="{% url 'delete_contrat' contrat.id %}" >Supprimer</a>
+    <a class="btn btn-md btn-success" href="{% url 'update_contrat' contrat.id %}" >Modifier </a>
+    <hr class="detail-separator">
+</div>
+{% endblock %}

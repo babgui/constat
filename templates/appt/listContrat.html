@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+	<div class="col-lg-12">
+        <hr>
+        <h6 class="intro-text text-center"> E-constat: La liste des Constats
+        </h6>
+        <hr class="detail-separator">
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="box">
+            <form action="" method="get">
+                {% csrf_token %}
+                {{myConstatFilter.form}}
+                <button class="btn bg-info text-center" href="">Rechercher</button>
+            </form>
+            <div class="card card-body" style="widht:18rem">
+                <table class="table table-sm">
+                    <tr>
+                        <th class="text-black">Date</th>
+                        <th class="text-black">Déclarant</th>
+                        <th class="text-black">Assurance</th>
+                        <th class="text-black">Assuré</th>
+                        <th class="text-black">Véhicule</th>
+                        <th class="text-black">Lieu</th>
+                        <th class="text-black">Format</th>
+                        <th class="text-black">Format</th>
+                    </tr>
+                    {% for constat in constats %}
+                    <tr>
+                        <td>{{constat.date_creation}}</td>
+                        <td>{{request.user}}</td>
+                        <td>{{constat.assurance}}</td>
+                        <td>{{constat.telephone}}</td>
+                        <td>{{constat.immatriculation}}</td>
+                        <td>{{constat.lieu}}</td>
+                        <th><a class="btn  btn-sm btn-info text-white" href="{% url 'detail_constat' constat.id%}">Web</a></th>
+                        <th><a class="btn  btn-sm btn-danger text-white" href="{% url 'pdf_constat' constat.id%}">Pdf</a></th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock content %}

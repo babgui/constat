@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+	<div class="col-lg-12">
+        <hr>
+        <h4 class="intro-text text-center"> Voulez-vous vraiment supprimer ce constat?
+        </h4>
+        <hr class="detail-separator">
+    </div>
+    <form action="{%url 'delete_contrat' contrat.id %}" method="POST">
+        {%csrf_token%}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <a class="btn btn-warning" href="{% url 'list_contrat'%}"> Annuler</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-white" href=""> </a>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <input class="btn btn-danger" type="submit" name="envoyer" value="Supprimer"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

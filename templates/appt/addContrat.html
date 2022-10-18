@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container">
+    <br>
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card card-body">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card card-body">
+                        <div class="text text-center text-black">Etape 1: INFORMATIONS SUR L'AGENT</div>
+                        <hr class="detail-separator">
+                        <div class="text text-center">N° Référence</div>
+                        <div class="text text-center">{{form.reference}}</div>
+                        <div class="text text-center">Matricule du Policier</div>
+                        <div class="text text-center">{{form.matricule}}</div>
+                    </div>
+                    <br>
+                    <div class="card card-body">
+                        <div class="text text-center">Etape 2: INFORMATIONS SUR L'INFRACTION</div>
+                        <hr class="detail-separator">
+                        <div class="text text-center">Infraction</div>
+                        <div class="text text-center">{{form.Infraction}}</div>
+                        <div class="text text-center">Pénalité</div>
+                        <div class="text text-center">{{form.penalite}}</div>
+                        <div class="text text-center">Montant à Payer</div>
+                        <div class="text text-center">{{form.montant}}</div>
+                    </div>
+                    <br>
+                    <div class="card card-body">
+                        <div class="text text-center">Etape 3: INFORMATIONS SUR LE VEHICULE </div>
+                        <hr class="detail-separator">
+                        <div class="text text-center">Conducteur</div>
+                        <div class="text text-center">{{form.conducteur}}</div>
+                        <div class="text text-center">Véhicule</div>
+                        <div class="text text-center">{{form.immatriculation}}</div>
+                        <div class="text text-center">Lieu</div>
+                        <div class="text text-center">{{form.lieu}}</div>
+                    </div>
+                    <br>
+                    <div class="card card-body">
+                        <div class="text text-center">Etape 4: Photographie et Croquis du lieu</div>
+                        <hr class="detail-separator">
+                        <div class="text text-center">PHOTOGRAPHIE DE L'ACCIDENT</div>
+                        <div class="text text-center">{{form.photographie}}</div>
+                        <div class="text text-center">CROQUIS DE L'ACCIDENT</div>
+                        <div class="text text-center">{{form.croquis}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input class="btn btn-danger" type="submit"/>
+    </form>
+</div>
+<br>
+{% endblock %}
